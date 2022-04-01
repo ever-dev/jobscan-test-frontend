@@ -34,11 +34,10 @@
             >
               Nothing found.
             </div>
-
             <ComboboxOption
               v-for="option in filteredOptions"
               :key="option.id"
-              v-slot="{ selected, active }"
+              v-slot="{ isSelected, active }"
               as="template"
               :value="option"
             >
@@ -51,12 +50,12 @@
               >
                 <span
                   class="block truncate"
-                  :class="{ 'font-medium': selected, 'font-normal': !selected }"
+                  :class="{ 'font-medium': isSelected, 'font-normal': !isSelected }"
                 >
                   {{ option.name }}
                 </span>
                 <span
-                  v-if="selected"
+                  v-if="isSelected"
                   class="absolute inset-y-0 left-0 flex items-center pl-3"
                   :class="{ 'text-white': active, 'text-teal-600': !active }"
                 >
@@ -88,7 +87,7 @@ import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
 import { IDropdownOption } from '../../../types'
 
 export default defineComponent({
-  name: 'Dropdown',
+  name: 'DropDown',
   components: {
     Combobox,
     ComboboxInput,

@@ -52,6 +52,7 @@ const jobModule = {
       )
 
       const response = await fetchJobPostsAction({ skill: skillQuery })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const { results } = response as any
       commit('setJobPosts', results)
     },

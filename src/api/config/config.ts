@@ -8,8 +8,9 @@ import { API_URL } from './urls'
 export const Axios: AxiosInstance = AxiosService.create()
 Axios.defaults.baseURL = API_URL
 Axios.interceptors.request.use(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (config: AxiosRequestConfig<any>) => {
-    const access_token: any = ''
+    const access_token = ''
 
     if (config.headers) {
       if (access_token) {

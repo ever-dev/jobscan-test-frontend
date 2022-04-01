@@ -17,6 +17,8 @@ import SkillList from '../components/skills/SkillList.vue'
 import JobList from '../components/jobs/JobList.vue'
 
 export default defineComponent({
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: 'Home',
   components: {
     SkillList,
     JobList,

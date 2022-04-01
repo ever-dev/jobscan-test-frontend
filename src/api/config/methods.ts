@@ -1,6 +1,7 @@
 import { Axios } from './config'
 
 const methods = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   get(endpoint: string, params?: any) {
     return new Promise((resolve, reject) => {
       Axios.get(`${endpoint}`, { params })
@@ -11,6 +12,7 @@ const methods = {
     })
   },
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   post(endpoint: string, payload: any, type = 'json') {
     return new Promise((resolve, reject) => {
       if (type === 'json') {
@@ -39,6 +41,7 @@ const methods = {
     })
   },
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   put(endpoint: string, payload: any) {
     return new Promise((resolve, reject) => {
       Axios.put(`${endpoint}`, payload)
@@ -49,6 +52,7 @@ const methods = {
     })
   },
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   patch(endpoint: string, payload: any) {
     return new Promise((resolve, reject) => {
       Axios.patch(`${endpoint}`, payload)
@@ -59,6 +63,7 @@ const methods = {
     })
   },
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   delete(endpoint: string, params?: any) {
     return new Promise((resolve, reject) => {
       Axios.delete(`${endpoint}`, { params })

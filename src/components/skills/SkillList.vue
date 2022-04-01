@@ -44,7 +44,7 @@
         :index="index + 1"
         :skill="userSkill.skill"
         :rate="userSkill.rate"
-        @onRemove="handleRemoveUserSkill"
+        @on-remove="handleRemoveUserSkill"
       />
     </div>
   </div>
