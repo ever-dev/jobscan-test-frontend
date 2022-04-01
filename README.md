@@ -15,14 +15,11 @@
 
 ## Structure
 
-├── ...
-├── src
-│ ├── api # API config and api calls
-│ ├── components # custom components
-│ ├── store # manage store by using vuex
-│ ├── types # defines all types like API response
-│ └── views # page views
-└── ...
+- api # API config and api calls
+- components # custom components
+- store # manage store by using vuex
+- types # defines all types like API response
+- views # page views
 
 ## Project setup and usage
 
