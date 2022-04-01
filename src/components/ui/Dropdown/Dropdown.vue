@@ -1,6 +1,6 @@
 <template>
   <div class="w-50 top-16">
-    <Combobox v-model="selected">
+    <Combobox v-model="value">
       <div class="relative mt-1">
         <div
           class="relative w-full text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-teal-300 focus-visible:ring-offset-2 sm:text-sm overflow-hidden"
@@ -103,7 +103,7 @@ export default defineComponent({
       type: Array as PropType<IDropdownOption[]>,
       required: true,
     },
-    value: { 
+    modelValue: { 
       type: Object as PropType<IDropdownOption>,
       default: () => {
         return { id: 0, name: '' }
@@ -113,9 +113,13 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   setup(props, { emit }) {
-    const { options, value } = toRefs(props)
+    const { options } = toRefs(props)
+
+    const value = computed({
+      get: () => props.modelValue,
+      set: (selected: IDropdownOption) => emit('update:modelValue', selected),
+    })
     
-    let selected = ref(options.value.filter(option => option.name === value.value.name).length > 0 ? options.value.filter(option => option.name === value.value.name)[0] : options[0])
     let query = ref('')
 
     let filteredOptions = computed(() =>
@@ -129,13 +133,9 @@ export default defineComponent({
           ),
     )
 
-    watch(selected, selectedValue => {
-      emit('update:modelValue', selectedValue)
-    })
-
     return {
+      value,
       query,
-      selected,
       filteredOptions,
     }
   },
